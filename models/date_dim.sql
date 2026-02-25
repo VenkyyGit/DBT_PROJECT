@@ -8,7 +8,7 @@ HOUR(TO_TIMESTAMP(STARTED_AT)) as HOUR_START_AT,
 {{day_type('STARTED_AT')}} AS DAY_TYPE,
 {{get_season('STARTED_AT')}} AS SEASON_OF_YEAR
 
-FROM {{ source('demo', 'biketable') }}
+FROM {{ ref('stage_bike') }}
 where STARTED_AT!= 'started_at' )
 
 SELECT * FROM DATE_DIM
